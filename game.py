@@ -127,7 +127,8 @@ while running:
         fish_rect.y += fish_velocity
 
         # Check if the fish is outside the play area
-        if not fish_rect.colliderect(pygame.Rect(play_area_x, play_area_y, PLAY_AREA_WIDTH, PLAY_AREA_HEIGHT)):
+        if not fish_rect.colliderect(pygame.Rect(play_area_x, play_area_y, PLAY_AREA_WIDTH, PLAY_AREA_HEIGHT)) \
+            or not fish_rect.colliderect(pygame.Rect(play_area_x, rect_y, PLAY_AREA_WIDTH, rect_height)):
             game_active = False  # End game
 
         # Update rectangle movement based on the mode
