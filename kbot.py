@@ -51,3 +51,6 @@ def fishing_bot():
             except AttributeError as e:
                 print(f"AttributeError: {e}")
         time.sleep(time_step)
+
+if __name__ == "__main__":
+    fishing_bot()
