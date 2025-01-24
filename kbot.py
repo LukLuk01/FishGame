@@ -38,15 +38,16 @@ def fishing_bot():
     while True:
         fish_location = locate('Fish_in_game.png')
         upper_bound_location = locate('Upper_bound.png')
-        if fish_location or upper_bound_location:
+        if fish_location and upper_bound_location:
             try:
-                print(f"fish location : {fish_location.y} Upper bound location : {upper_bound_location.y}", end='\n', flush=True)
-                distance_to_upper_bound = fish_location.y - upper_bound_location.y
-                print(f"Distance to upper bound : {distance_to_upper_bound}")
-                if distance_to_upper_bound > 45:
-                    keyboard.press_and_release('space')
-                    print("Jumping!")
+                if fish_location and upper_bound_location:
+                    print(f"fish location : {fish_location.y} Upper bound location : {upper_bound_location.y}", end='\n', flush=True)
+                    distance_to_upper_bound = fish_location.y - upper_bound_location.y
+                    print(f"Distance to upper bound : {distance_to_upper_bound}")
+                    if distance_to_upper_bound > 45:
+                        keyboard.press_and_release('space')
+                        print("Jumping!")
 
-            except AttributeError:
-                pass
+            except AttributeError as e:
+                print(f"AttributeError: {e}")
         time.sleep(time_step)
